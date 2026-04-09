@@ -45,6 +45,7 @@ fn run_cli() -> Result<(), Box<dyn std::error::Error>> {
                 println!(" list done               - List completed tasks");
                 println!(" list in-progress        - List tasks in progress");
                 println!(" list pending            - List pending tasks");
+                println!(" edit <id> <description> - Edit a task description");
                 println!(" done <id>               - Mark task as done");
                 println!(" in-progress <id>        - Mark task as in-progress");
                 println!(" pending <id>            - Mark task as pending");
@@ -67,7 +68,8 @@ fn run_cli() -> Result<(), Box<dyn std::error::Error>> {
                     updated_at: now,
                 });
                 save_tasks(filename, &tasks);
-                println!("New Task added!");
+                // println!("New Task added!");
+                println!("Task added successfully (ID: {id})!");
             }
             "list" => {
                 if tasks.is_empty() {
@@ -99,6 +101,33 @@ fn run_cli() -> Result<(), Box<dyn std::error::Error>> {
                     task.updated_at = Utc::now();
                     save_tasks(filename, &tasks);
                     println!("Task {} marked {}!", id, command);
+                } else {
+                    println!("Task ID not found");
+                }
+            }
+
+            "edit" => {
+                if args.len() < 2 {
+                    println!("Usage: edit <id> <new description>");
+                    continue;
+                }
+
+                let id: u32 = match args[0].parse() {
+                    Ok(id) => id,
+                    Err(_) => {
+                        println!("Invalid ID");
+                        continue;
+                    }
+                };
+
+                let new_description = args[1..].join(" ");
+
+                if let Some(task) = tasks.iter_mut().find(|t| t.id == id) {
+                    task.description = new_description;
+                    task.updated_at = Utc::now();
+
+                    save_tasks(filename, &tasks);
+                    println!("Task {} updated successfully!", id);
                 } else {
                     println!("Task ID not found");
                 }
