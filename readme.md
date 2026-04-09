@@ -160,4 +160,6 @@ MIT
 
 ---
 
-*Built as a learning project to explore Rust fundamentals, CLI design, file persistence, and struct/enum modeling. Enjoy! 🦀*
+> 📌 Built as part of the [roadmap.sh Task Tracker project](https://roadmap.sh/projects/task-tracker).
+
+*Built as a learning project to absorb Rust fundamentals, CLI design, file persistence, and struct/enum modeling. Enjoy! 🦀*
