@@ -1,12 +1,10 @@
 use std::io::{self, Write};
-
 use chrono::Utc;
 
 use crate::{
     model::{Task, TodoStatus},
     repository::{load_tasks, save_tasks},
 };
-
 mod model;
 mod repository;
 
@@ -68,7 +66,7 @@ fn run_cli() -> Result<(), Box<dyn std::error::Error>> {
                     updated_at: now,
                 });
                 save_tasks(filename, &tasks);
-                // println!("New Task added!");
+                
                 println!("Task added successfully (ID: {id})!");
             }
             "list" => {
@@ -130,6 +128,32 @@ fn run_cli() -> Result<(), Box<dyn std::error::Error>> {
                     println!("Task {} updated successfully!", id);
                 } else {
                     println!("Task ID not found");
+                }
+            }
+
+            "delete" => {
+                if args.len() < 1 {
+                    println!("Usage: delete <id>");
+                    continue;
+                }
+
+                let id: u32 = match args[0].parse() {
+                    Ok(id) => id,
+                    Err(_) => {
+                        println!("Invalid ID");
+                        continue;
+                    }
+                };
+
+                let initial_len = tasks.len();
+
+                tasks.retain(|t| t.id != id);
+
+                if tasks.len() == initial_len {
+                    println!("Task ID not found");
+                } else {
+                    save_tasks(filename, &tasks);
+                    println!("Task {} deleted successfully!", id);
                 }
             }
             _ => println!("Unknown command. Type 'help' for commands."),
