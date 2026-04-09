@@ -1,4 +1,4 @@
-# 🦀 Task Tracker CLI (Rust)
+# 🦀 [Task Tracker CLI](https://github.com/Galadima3/task-cli/) (Rust)
 
 A simple and efficient **command-line task manager** built with Rust. Create, manage, and persist tasks using a local JSON file.
 
@@ -41,8 +41,8 @@ A simple and efficient **command-line task manager** built with Rust. Create, ma
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/task-tracker-cli.git
-cd task-tracker-cli
+git clone https://github.com/Galadima3/task-cli.git
+cd task-cli
 
 # Build
 cargo build
@@ -64,16 +64,16 @@ Welcome to Task Tracker CLI! Type 'help' for commands.
 
 ### Commands
 
-| Command                   | Description               |
-| ------------------------- | ------------------------- |
-| `add <description>`       | Add a new task            |
-| `list`                    | List all tasks            |
-| `edit <id> <description>` | Edit a task               |
-| `done <id>`               | Mark task as completed    |
-| `in-progress <id>`        | Mark task as in progress  |
-| `pending <id>`            | Mark task as pending      |
-| `delete <id>`             | Delete a task             |
-| `exit`                    | Quit the CLI              |
+| Command                   | Description              |
+| ------------------------- | ------------------------ |
+| `add <description>`       | Add a new task           |
+| `list`                    | List all tasks           |
+| `edit <id> <description>` | Edit a task              |
+| `done <id>`               | Mark task as completed   |
+| `in-progress <id>`        | Mark task as in progress |
+| `pending <id>`            | Mark task as pending     |
+| `delete <id>`             | Delete a task            |
+| `exit`                    | Quit the CLI             |
 
 ---
 
@@ -121,11 +121,11 @@ Tasks are saved to `tasks.json` (auto-created on first run):
 
 ## 🧠 How It Works
 
-| File              | Responsibility                          |
-| ----------------- | --------------------------------------- |
-| `model.rs`        | Defines `Task` and `TodoStatus`         |
-| `repository.rs`   | Handles reading/writing JSON            |
-| `main.rs`         | CLI loop, command parsing, and logic    |
+| File            | Responsibility                       |
+| --------------- | ------------------------------------ |
+| `model.rs`      | Defines `Task` and `TodoStatus`      |
+| `repository.rs` | Handles reading/writing JSON         |
+| `main.rs`       | CLI loop, command parsing, and logic |
 
 ---
 
@@ -159,6 +159,5 @@ Contributions are welcome! Fork the repo and open a pull request.
 MIT
 
 ---
-[Project Url]: https://github.com/Galadima3/task-cli/
 
 *Built as a learning project to explore Rust fundamentals, CLI design, file persistence, and struct/enum modeling. Enjoy! 🦀*
