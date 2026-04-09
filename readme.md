@@ -159,5 +159,6 @@ Contributions are welcome! Fork the repo and open a pull request.
 MIT
 
 ---
+[Project Url]: https://github.com/Galadima3/task-cli/
 
 *Built as a learning project to explore Rust fundamentals, CLI design, file persistence, and struct/enum modeling. Enjoy! 🦀*
